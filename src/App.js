@@ -25,13 +25,46 @@ function App() {
       );
    };
 
-   return (
-      <div className="container">
-         <TodoHeader />
-         <TodosList todosList={todosList} handleToggle={handleToggle} />
-         <TodoFooter />
-      </div>
-   );
+   const generateId = () => {
+      return todosList[todosList.length - 1].id + 1;
+   };
+
+   const addTodo = (title) => {
+      if (title.trim()) {
+         setTodos(
+            (prevState) =>
+               (prevState = todosList.push({
+                  id: generateId(),
+                  title: title,
+                  completed: false,
+               }))
+         );
+      }
+      console.log(todosList);
+   };
+
+   const clearCompleted = () => {
+      setTodos((prevState) => (prevState = todosList.filter((todo) => !todo.completed)));
+   };
+
+   const deleteTodo = (id) => {
+      setTodos((prevState) => (prevState = todosList.filter((todo) => todo.id !== id)));
+   };
+   {
+      return (
+         <div className="container p-2">
+            <div className="list shadow-lg p-3 mb-5 bg-body rounded">
+               <TodoHeader addTodo={addTodo} />
+               <TodosList
+                  todosList={todosList}
+                  handleToggle={handleToggle}
+                  deleteTodo={deleteTodo}
+               />
+               <TodoFooter todosList={todosList} clearCompleted={clearCompleted} />
+            </div>
+         </div>
+      );
+   }
 }
 
 export default App;
