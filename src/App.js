@@ -31,14 +31,14 @@ function App() {
 
    const addTodo = (title) => {
       if (title.trim()) {
-         setTodos(
-            (prevState) =>
-               (prevState = todosList.push({
-                  id: generateId(),
-                  title: title,
-                  completed: false,
-               }))
-         );
+         setTodos([
+            ...todosList,
+            {
+               id: generateId(),
+               title: title,
+               completed: false,
+            },
+         ]);
       }
       console.log(todosList);
    };
