@@ -6,6 +6,7 @@ const TodosList = ({ todosList, handleToggle, deleteTodo }) => {
       <>
          {todosList.map((todo) => (
             <Todo
+               key={todo.id}
                todo={todo}
                handleToggle={handleToggle}
                deleteTodo={deleteTodo}

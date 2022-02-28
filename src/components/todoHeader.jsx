@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 
 const TodoHeader = ({ addTodo }) => {
-   const [inputValue, setInputValue] = useState("");
+   const [text, setText] = useState("");
 
    return (
       <div className="box">
          <input
             type="text"
+            value={text}
             placeholder="What need to be done?"
-            onChange={(evt) =>
-               setInputValue((prevState) => (prevState = evt.target.value))
-            }
+            onChange={(e) => setText(e.target.value)}
             style={{ display: "inline-block" }}
          />
          <button
-            className="btn btn-secondary"
-            onClick={() => {
-               addTodo(inputValue);
+            className="btn btn-outline-primary"
+            onSubmit={(e) => {
+               e.preventDefault();
+               addTodo(text);
             }}
          >
             Add

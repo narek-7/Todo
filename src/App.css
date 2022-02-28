@@ -35,8 +35,9 @@ div.checkbox{
 }
 
 input{
+   padding-left: .5rem;
    margin-right: .5rem;
-   width: 80%;
+   width: 75%;
 }
 
 button{

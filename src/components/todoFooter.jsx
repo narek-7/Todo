@@ -7,7 +7,7 @@ const TodoFooter = ({ todosList, clearCompleted }) => {
             {`${todosList.filter((todo) => todo.completed).length} / ${todosList.length}`}
          </span>
 
-         <button className="btn btn-secondary" onClick={clearCompleted}>
+         <button className="btn btn-outline-primary" onClick={clearCompleted}>
             Clear Completed
          </button>
       </div>
