@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useReducer } from "react";
 import TodosList from "./components/todosList";
 import TodoHeader from "./components/todoHeader";
 import TodoFooter from "./components/todoFooter";
@@ -43,7 +43,7 @@ function App() {
    const handleToggle = (id) => {
       dispatch({
          type: "toggle",
-         payload: { id: id },
+         payload: { id },
       });
    };
 
@@ -51,7 +51,7 @@ function App() {
       if (title.trim()) {
          dispatch({
             type: "add",
-            payload: { title: title },
+            payload: { title },
          });
       }
    };
@@ -65,7 +65,7 @@ function App() {
    const deleteTodo = (id) => {
       dispatch({
          type: "delete",
-         payload: { id: id },
+         payload: { id },
       });
    };
    {
