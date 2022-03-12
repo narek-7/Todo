@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useState } from "react";
 import TodosList from "./components/todosList";
 import TodoHeader from "./components/todoHeader";
 import TodoFooter from "./components/todoFooter";
@@ -29,6 +29,16 @@ function reducer(state, action) {
    if (action.type === "clear") {
       return state.filter((todo) => !todo.completed);
    }
+}
+
+function useReducer(reducer, initialState) {
+   const [state, setState] = useState(initialState);
+
+   return [
+      state, (action) => {
+         setState(reducer(state, action));
+      },
+   ];
 }
 
 function App() {
