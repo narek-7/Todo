@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useReducer } from "react";
 import TodosList from "./components/todosList";
 import TodoHeader from "./components/todoHeader";
 import TodoFooter from "./components/todoFooter";

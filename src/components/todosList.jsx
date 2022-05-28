@@ -10,7 +10,6 @@ const TodosList = ({ todosList, handleToggle, deleteTodo }) => {
                todo={todo}
                handleToggle={handleToggle}
                deleteTodo={deleteTodo}
-               key={todo.id}
             />
          ))}
       </>
