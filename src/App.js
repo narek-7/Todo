@@ -35,11 +35,11 @@ function App() {
    const [todosList, dispatch] = useReducer(reducer, [
       { id: 1, title: "Learn JS", completed: false },
       { id: 2, title: "Learn React", completed: false },
-      { id: 2, title: "Learn React Redux", completed: false },
-      { id: 2, title: "Learn React Toolkit", completed: false },
-      { id: 3, title: "Learn Angular", completed: false },
-      { id: 4, title: "Learn NodeJS", completed: false },
-      { id: 5, title: "Learn ExpressJS", completed: false },
+      { id: 3, title: "Learn React Redux", completed: false },
+      { id: 4, title: "Learn React Toolkit", completed: false },
+      { id: 5, title: "Learn Angular", completed: false },
+      { id: 6, title: "Learn NodeJS", completed: false },
+      { id: 7, title: "Learn ExpressJS", completed: false },
    ]);
 
    const handleToggle = (id) => {
