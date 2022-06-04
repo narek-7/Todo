@@ -2,7 +2,9 @@ import React, { useReducer } from "react";
 import TodosList from "./components/todosList";
 import TodoHeader from "./components/todoHeader";
 import TodoFooter from "./components/todoFooter";
+import { useSelector, useDispatch } from "react-redux";
 import "./App.css";
+import { addTodo } from "./features/todos/todosSlice";
 
 function reducer(state, action) {
    if (action.type === "add") {
@@ -32,15 +34,9 @@ function reducer(state, action) {
 }
 
 function App() {
-   const [todosList, dispatch] = useReducer(reducer, [
-      { id: 1, title: "Learn JS", completed: false },
-      { id: 2, title: "Learn React", completed: false },
-      { id: 3, title: "Learn React Redux", completed: false },
-      { id: 4, title: "Learn React Toolkit", completed: false },
-      { id: 5, title: "Learn Angular", completed: false },
-      { id: 6, title: "Learn NodeJS", completed: false },
-      { id: 7, title: "Learn ExpressJS", completed: false },
-   ]);
+   const dispatch = useDispatch();
+   const todosList = useSelector((state) => state.todos);
+   console.log(todosList);
 
    const handleToggle = (id) => {
       dispatch({
@@ -75,7 +71,7 @@ function App() {
          <div className="container p-2">
             <div className="list shadow-lg p-3 mb-5 bg-body rounded">
                <h1>Todos</h1>
-               <TodoHeader addTodo={addTodo} />
+               <TodoHeader />
                <TodosList
                   todosList={todosList}
                   handleToggle={handleToggle}

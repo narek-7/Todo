@@ -4,11 +4,12 @@
 }
 
 .list {
+   margin-top: 3rem;
    display: flex;
    flex-direction: column;
    justify-content: center;
    width: 450px;
-   min-width: 250px;
+   min-width: 250px; 
 }
 
 .box {

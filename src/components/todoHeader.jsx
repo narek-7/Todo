@@ -1,11 +1,10 @@
 import React, { useState } from "react";
+import { addTodo } from "../features/todos/todosSlice";
+import { useDispatch } from "react-redux";
 
-const TodoHeader = ({ addTodo }) => {
+const TodoHeader = () => {
    const [text, setText] = useState("");
-
-   // useEffect(() =>{
-
-   // })
+   const dispatch = useDispatch();
 
    return (
       <div className="box">
@@ -20,7 +19,7 @@ const TodoHeader = ({ addTodo }) => {
          <button
             className="btn btn-outline-primary"
             onClick={() => {
-               addTodo(text);
+               dispatch(addTodo(text));
                setText("");
             }}
          >
