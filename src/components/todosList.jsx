@@ -1,22 +1,23 @@
 import React from "react";
 import Todo from "./todo";
-import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
-const TodosList = ({ todosList, handleToggle, deleteTodo }) => {
-   const dispatch = useDispatch();
-    
+const TodosList = () => {
+   const todosList = useSelector((state) => state.todos);
+
    return (
       <>
          {todosList.map((todo) => (
-            <Todo
-               key={todo.id}
-               todo={todo}
-               handleToggle={handleToggle}
-               deleteTodo={deleteTodo}
-            />
+            <Todo key={todo.id} todo={todo} />
          ))}
       </>
    );
 };
 
 export default TodosList;
+
+{
+   todosList.map((todo) => {
+      <Todo key={todo.id} todo={todo} />;
+   });
+}

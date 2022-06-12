@@ -1,9 +1,13 @@
 import React from "react";
+import { handleToggle, deleteTodo } from "../features/todos/todosSlice";
+import { useDispatch } from "react-redux";
 
-const Todo = ({ todo, handleToggle, deleteTodo }) => {
+const Todo = ({ todo }) => {
+   const dispatch = useDispatch();
+
    return (
       <div className="box shadow-sm p-1 mb-3 bg-body rounded">
-         <div className="checkbox" onClick={() => handleToggle(todo.id)}>
+         <div className="checkbox" onClick={() => dispatch(handleToggle(todo.id))}>
             <input
                className="form-check-input"
                type="checkbox"
@@ -14,9 +18,9 @@ const Todo = ({ todo, handleToggle, deleteTodo }) => {
             />
             <label className="form-check-label ms-3">{todo.title}</label>
          </div>
-         <span id="addTodo" className="btn" onClick={() => deleteTodo(todo.id)}>
+         <button className="btn" onClick={() => dispatch(deleteTodo(todo.id))}>
             x
-         </span>
+         </button>
       </div>
    );
 };
