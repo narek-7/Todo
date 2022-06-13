@@ -17,11 +17,13 @@ const todosSlice = createSlice({
 
    reducers: {
       addTodo: (state, action) => {
-         state.push({
-            id: v1(),
-            title: action.payload,
-            completed: false,
-         });
+         if (action.payload.trim()) {
+            state.push({
+               id: v1(),
+               title: action.payload,
+               completed: false,
+            });
+         }
       },
 
       handleToggle: (state, action) => {
@@ -33,7 +35,7 @@ const todosSlice = createSlice({
       },
       deleteTodo: (state, action) => {
          return state.filter((todo) => {
-            return todo.id != action.payload;
+            return todo.id !== action.payload;
          });
       },
       clearCompleted: (state) => {

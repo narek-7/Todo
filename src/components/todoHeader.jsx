@@ -1,26 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import { addTodo } from "../features/todos/todosSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { updateInputText, changeInputText } from "../features/todos/inputTodoSlice";
 
 const TodoHeader = () => {
-   const [text, setText] = useState("");
    const dispatch = useDispatch();
+   const inputText = useSelector((state) => state.inputTodo);
 
    return (
       <div className="box">
          <input
             type="text"
-            value={text}
+            value={inputText}
             placeholder="What need to be done?"
-            onChange={(e) => {
-               setText(e.target.value);
+            onChange={(evt) => {
+               dispatch(changeInputText(evt.target.value));
             }}
          />
          <button
             className="btn btn-outline-primary"
             onClick={() => {
-               dispatch(addTodo(text));
-               setText("");
+               dispatch(addTodo(inputText));
+               dispatch(updateInputText());
             }}
          >
             Add

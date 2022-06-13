@@ -15,9 +15,3 @@ const TodosList = () => {
 };
 
 export default TodosList;
-
-{
-   todosList.map((todo) => {
-      <Todo key={todo.id} todo={todo} />;
-   });
-}
