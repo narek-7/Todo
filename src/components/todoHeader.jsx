@@ -1,11 +1,11 @@
-import React from "react";
+import { updateInputText, changeInputText } from "../features/todos/inputTodoSlice";
 import { addTodo } from "../features/todos/todosSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { updateInputText, changeInputText } from "../features/todos/inputTodoSlice";
+import React from "react";
 
 const TodoHeader = () => {
    const dispatch = useDispatch();
-   const inputText = useSelector((state) => state.inputTodo);
+   const inputText = useSelector((state) => state.inputTodo.text);
 
    return (
       <div className="box">

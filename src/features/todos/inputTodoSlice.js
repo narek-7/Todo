@@ -1,16 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = "";
+const initialState = {
+   text: "",
+};
 
 const inputTodoSlice = createSlice({
    name: "inputTodo",
    initialState,
    reducers: {
-      updateInputText: () => {
-         return ""; // !why its not possible to use (state = "")
+      updateInputText: (state) => {
+         state.text = ""; // !why its not possible to use (state = "")
       },
       changeInputText: (state, action) => {
-         return action.payload;
+         state.text = action.payload;
       },
    },
 });
